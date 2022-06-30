@@ -1,5 +1,6 @@
 {
   "name": "learning-react",
+  "homepage": "http://covelli1.github.io/ReactApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,6 +24,8 @@
     "build:css": "postcss src/index.css -o src/tailwind.css",
     "watch:css": "postcss src/index.css -o src/tailwind.css -w",
     "start": "yarn build:css && react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14"
   }
 }
