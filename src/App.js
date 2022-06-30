@@ -27,7 +27,7 @@ function App() {
         </a>
       </header> */}
       <Header/>
-      <HelloWorld name="Anthony" temp="Vince"/>
+      <HelloWorld name="Anthony" temp="Vin"/>
       <CounterExample />
       <Footer/>
     </div>
