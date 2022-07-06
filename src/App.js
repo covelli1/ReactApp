@@ -1,9 +1,21 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
-import HelloWorld from './Components/HelloWorld';
-import CounterExample from './Components/CounterExample';
+// import HelloWorld from './Components/HelloWorld';
+// import CounterExample from './Components/CounterExample';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import About from "./routes/About"
+import Home from './routes/Home';
+import Games from './routes/Games';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  // Link,
+} from "react-router-dom";
+
+
 
 function App() {
   return (
@@ -26,10 +38,24 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Header/>
-      <HelloWorld name="Anthony" temp="Vin"/>
-      <CounterExample />
-      <Footer/>
+      
+      <Router>
+        <Header/>
+        
+        <div className='p-3'>
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}/>
+            <Route path="/games" element={<Games />}/>
+            
+          </Routes>
+        </div>
+        
+
+        <Footer/>
+      </Router>
+      
+      
     </div>
   );
 }
