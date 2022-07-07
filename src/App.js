@@ -6,7 +6,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import About from "./routes/About"
 import Home from './routes/Home';
-import Games from './routes/Games';
+// import Games from './routes/Games';
 
 import {
   BrowserRouter as Router,
