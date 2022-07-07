@@ -29,7 +29,11 @@ function App() {
         
         <div className='p-3'>
           <Routes>
+            
+            {/* MAKE SURE BOTH ROUTE TO HOME PAGE */}
             <Route exact path="/" element={<Home />}></Route>
+            <Route path="/ReactApp" element={<Home />}></Route>
+            
             <Route path="/about" element={<About />}/>
             <Route path="/games" element={<Games />}/>
             
