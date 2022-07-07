@@ -8,16 +8,13 @@ function Both_Teams(props) {
     let team1 = null
     let team2 = null
 
-    console.log(props.teamDict)
     let champ = null
     for(var x in props.teamDict) {
-        console.log(x)
         if(team1 == null) {
             team1 = 
             props.teamDict[x].map((player) =>
                 {
                     champ = player[1].championName + '.png'
-                    console.log(champ)
 
                     return (
                         <div className="flex justify-center items-center">
@@ -36,7 +33,6 @@ function Both_Teams(props) {
             props.teamDict[x].map((player) =>
                 {
                     champ = player[1].championName + '.png'
-                    console.log(champ)
 
                     return (
                         <div className="flex justify-center items-center">
