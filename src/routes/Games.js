@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HelloWorld from "../Components/HelloWorld";
 import axios from "axios";
 import Loader from '../Components/Loader'
+import GameCard from "../Components/GameCard";
 
 import {
   // BrowserRouter as Router,
@@ -14,7 +15,7 @@ import { data } from "browserslist";
 
 function Games() {
 
-    const url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/9P4U9HheFG4fo4DyYcisBZxnUR1bqhNIJqE_lHunyvfidzrvKKRtewqqvWYVQFWNGJSVMuJlNOEkIA/ids?startTime=1641513600&type=ranked&start=0&count=100&api_key=${process.env.REACT_APP_LOL_API_KEY}`
+    const url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/9P4U9HheFG4fo4DyYcisBZxnUR1bqhNIJqE_lHunyvfidzrvKKRtewqqvWYVQFWNGJSVMuJlNOEkIA/ids?startTime=1641513600&type=ranked&start=0&count=10&api_key=${process.env.REACT_APP_LOL_API_KEY}`
     const [games, setGames] = useState({
       loading: false,
       data: null, 
@@ -62,9 +63,9 @@ function Games() {
 
     if(games.data) {
       content = 
-      games.data.map((game, key) =>
-        <div>
-          {game}
+      games.data.map((game) =>
+        <div className="block border-t border-b" key={game.toString()}>
+          <GameCard game={game}/>
         </div>
       )
     }
@@ -77,4 +78,4 @@ function Games() {
     
   }
 
-export default Games
+export default Games;
