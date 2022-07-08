@@ -18,6 +18,7 @@ function Both_Teams(props) {
 
                     return (
                         <div className="flex justify-center items-center">
+                            
                             <img src={images[champ]} className="object-scale-down h-48 w-96" />
                             {player[0]} 
                             <br></br>
@@ -33,7 +34,6 @@ function Both_Teams(props) {
             props.teamDict[x].map((player) =>
                 {
                     champ = player[1].championName + '.png'
-
                     return (
                         <div className="flex justify-center items-center">
                             <img src={images[champ]} className="object-scale-down h-48 w-96" />

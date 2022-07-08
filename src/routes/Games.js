@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HelloWorld from "../Components/HelloWorld";
 import axios from "axios";
 import Loader from '../Components/Loader'
@@ -20,20 +20,14 @@ function Games() {
       loading: false,
       data: null, 
       error: false
-    })
+    });
+
+    //Create function "urlFormat"
+    const urlFormat = num => `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/9P4U9HheFG4fo4DyYcisBZxnUR1bqhNIJqE_lHunyvfidzrvKKRtewqqvWYVQFWNGJSVMuJlNOEkIA/ids?startTime=1641513600&type=ranked&start=0&count=${num}&api_key=${process.env.REACT_APP_LOL_API_KEY}`
+    const url = urlFormat(numGamesLoad);
 
     //Changes the "numGamesLoad" so the page can render correct number of games
-    const handleSubmit = event => {
-      console.log(event.target.value)
-      setNumGamesLoad(event.target.value);
-    }
-
-
-    const url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/9P4U9HheFG4fo4DyYcisBZxnUR1bqhNIJqE_lHunyvfidzrvKKRtewqqvWYVQFWNGJSVMuJlNOEkIA/ids?startTime=1641513600&type=ranked&start=0&count=${numGamesLoad}&api_key=${process.env.REACT_APP_LOL_API_KEY}`
-    
-    //Use effect tells component to "do something" after render
-    //After render: setGames runs and axios gets url response
-    useEffect(() => {
+    const fetchData = () => {
       setGames({
         loading:true,
         data:null,
@@ -54,9 +48,12 @@ function Games() {
           data:null,
           error:true
         })
-      })
-    }, [url])
-    
+      });
+  };
+
+  useEffect(() => fetchData(), []);
+
+
     //initialize var that will hold html content to display
     let content = null
 
@@ -78,22 +75,36 @@ function Games() {
       content = 
       games.data.map((game) =>
         <div className="block border-t border-b" key={game.toString()}>
-          <GameCard game={game}/>
+          <GameCard game={game} player="covelli"/>
         </div>
       )
     }
 
+
+    /**
+     * using <form> was fucking you up
+     * i updated your structure a bit to make it a lot better, but it's not the best structure
+     * calling useEffect with [] empty dependency array means it loads only ONCE, the very very beginning load
+     */
+
+
     return (
       <div >
-        <form onSubmit={handleSubmit}>
-          <label for="num">Input the number of games to view:</label>
-          <input
-            type="text"
-            id="num"
-            name="num"
-          />
-          <input type="submit" value="Submit" />
-        </form>
+        <div>
+          <label>
+            Input the number of games to view:
+            <input
+              id="num"
+              name="num"
+              value={numGamesLoad}
+              onChange={e => {
+                setNumGamesLoad(e.target.value);
+              }
+            }
+            />
+          </label>
+          <button onClick={fetchData}>Submit</button>
+        </div>
         {content}
       </div>
     )

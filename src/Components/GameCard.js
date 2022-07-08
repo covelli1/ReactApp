@@ -4,7 +4,6 @@ import Loader from '../Components/Loader'
 import Both_Teams from './Both_Teams'
 
 
-let user = "Covelli"
 
 function GameCard(props) {
     
@@ -92,7 +91,7 @@ function GameCard(props) {
         
 
         for(var key in summonerInfoDict) {
-            if(key == user) {
+            if(key.toLowerCase() == props.player.toLowerCase()) {
                 
                 // Get the Champion played so we can grab the image
                 let champion = summonerInfoDict[key].championName
