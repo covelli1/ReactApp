@@ -34,14 +34,14 @@ function GameCard(props) {
                 data: response.data,
                 error:false
             })
-        })
-        .catch(() => {
-            setGameCard({
-                loading: false,
-                data:null,
-                error:true
             })
-        })
+            .catch(() => {
+                setGameCard({
+                    loading: false,
+                    data:null,
+                    error:true
+                })
+            })
     }, [url])
     
     let content = null
@@ -105,12 +105,12 @@ function GameCard(props) {
                     if(!gameWin) {
                         content = 
                         // PARENT DIV THAT SETS BACKGROUND COLOR
-                        <div className="bg-gradient-to-r from-red-600 to-red-300 flex justify-start">
+                        <div className="bg-gradient-to-r from-red-600 to-red-300 flex flex-row">
                             
                             {/* DISPLAY: DATE/CHAMPION PLAYED/KDA */}
-                            <div className="pl-10 py-4">
+                            <div className="flex flex-col justify-center items-center">
                                 {gameDate}
-                                <img src={images[champion]} />
+                                <img src={images[champion]}/>
                                 {summonerInfoDict[key].kills} / {summonerInfoDict[key].deaths} / {summonerInfoDict[key].assists}
                             </div>
 
@@ -130,7 +130,7 @@ function GameCard(props) {
                         <div className="bg-gradient-to-r from-green-500 to-green-200 flex justify-start">
                             
                             {/* DISPLAY: DATE/CHAMPION PLAYED/KDA */}
-                            <div className="pl-10 py-4 flex-col">
+                            <div className="flex flex-col justify-center items-center">
                                 {gameDate}
                                 <img src={images[champion]} />
                                 {summonerInfoDict[key].kills} / {summonerInfoDict[key].deaths} / {summonerInfoDict[key].assists}

@@ -1,3 +1,4 @@
+import { Container } from "postcss";
 import React, { useEffect, useState } from "react";
 
 let images = {}
@@ -17,12 +18,16 @@ function Both_Teams(props) {
                     champ = player[1].championName + '.png'
 
                     return (
-                        <div className="flex justify-center items-center">
+                        <div className="" key={player[0]}>
+                            <div className="flex flex-row items-center">
+                                <img src={images[champ]} className="scale-50" />
+                                {player[0]} 
+                                <br></br>
+                            </div>
                             
-                            <img src={images[champ]} className="object-scale-down h-48 w-96" />
-                            {player[0]} 
-                            <br></br>
                         </div>
+
+                        
                     )
                         
                 }
@@ -35,10 +40,13 @@ function Both_Teams(props) {
                 {
                     champ = player[1].championName + '.png'
                     return (
-                        <div className="flex justify-center items-center">
-                            <img src={images[champ]} className="object-scale-down h-48 w-96" />
-                            {player[0]} 
-                            <br></br>
+                        <div className="" key={player[0]}>
+                            <div className="flex flex-row items-center">
+                                <img src={images[champ]} className="" />
+                                {player[0]} 
+                                <br></br>
+                            </div>
+                            
                         </div>
                     )
                         

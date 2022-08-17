@@ -90,7 +90,7 @@ function Home() {
         <div>
   
   
-          <label>
+          <label className="pr-2 text-xl font-semibold">
             Input the Summoner to view:
           </label>
           <input
@@ -102,14 +102,19 @@ function Home() {
                   setSummonerSearch(e.target.value);
                 }
               }
-              className="border border-solid border-gray-300 rounded"
+              onKeyPress={(e) => {
+                if(e.key === "Enter") { 
+                  updateSummonerPUUID();
+                }}
+            }
+              className="border border-solid border-black p-2 rounded"
             />
         </div>
   
         <div className="pl-3">
           <button 
             onClick={updateSummonerPUUID}
-            className="border border-solid border-gray-300 bg-gray-300"
+            className="border border-black p-2 rounded"
           >
             Submit
           </button>
