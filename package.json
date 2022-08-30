@@ -1,6 +1,5 @@
 {
-  "name": "learning-react",
-  "homepage": "http://covelli1.github.io/ReactApp",
+  "name": "league-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
