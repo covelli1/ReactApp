@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import HelloWorld from "../Components/HelloWorld";
 import axios from "axios";
 import Loader from '../Components/Loader'
 import GameCard from "../Components/GameCard";
