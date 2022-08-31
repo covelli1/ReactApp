@@ -96,7 +96,8 @@ function Home() {
               id="summonerName"
               name="summonerName"
               value={summonerSearch}
-              spellcheck="false"
+              autoCorrect="false"
+              spellCheck="false"
               onChange={e => 
                 {
                   setSummonerSearch(e.target.value);
