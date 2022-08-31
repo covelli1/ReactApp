@@ -22,7 +22,7 @@ function Both_Teams(props) {
                             <div className="flex flex-row items-center">
                                 <img src={images[champ]} className="scale-50" />
                                 {player[0]} 
-                                <br></br>
+                                
                             </div>
                             
                         </div>
@@ -42,9 +42,9 @@ function Both_Teams(props) {
                     return (
                         <div className="" key={player[0]}>
                             <div className="flex flex-row items-center">
-                                <img src={images[champ]} className="" />
+                                <img src={images[champ]} className="scale-50" />
                                 {player[0]} 
-                                <br></br>
+                            
                             </div>
                             
                         </div>
@@ -61,12 +61,12 @@ function Both_Teams(props) {
     return ( 
         
         
-        <div className="flex justify-end items-center right-10 w-full ">
-            <div className="flex flex-col pl-5">
+        <div className="flex justify-end items-center w-full">
+            <div className="flex flex-col">
                 {team1}
             </div>
             
-            <div className="flex flex-col pl-5">
+            <div className="flex flex-col">
                 {team2}
             </div>
         </div>

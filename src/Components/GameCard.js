@@ -127,7 +127,7 @@ function GameCard(props) {
                     } else {
                         content = 
                         // PARENT DIV THAT SETS BACKGROUND COLOR
-                        <div className="bg-gradient-to-r from-green-500 to-green-200 flex justify-start">
+                        <div className="bg-gradient-to-r from-green-500 to-green-200 flex flex-row justify-between">
                             
                             {/* DISPLAY: DATE/CHAMPION PLAYED/KDA */}
                             <div className="flex flex-col justify-center items-center">
@@ -142,8 +142,9 @@ function GameCard(props) {
                             </div>
 
                             {/* DISPLAY WHICH PLAYER WAS ON WHICH TEAM */}
-                            
-                            <Both_Teams teamDict={summonerTeamDict} />
+                            <div>
+                                <Both_Teams teamDict={summonerTeamDict} />
+                            </div>
                             
                         </div>
                     }

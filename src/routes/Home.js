@@ -85,7 +85,7 @@ function Home() {
 
   return ( 
     <div>
-      <div className="flex">
+      <div className="flex justify-center pb-3">
         <div>
   
   
