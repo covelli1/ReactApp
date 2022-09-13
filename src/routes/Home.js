@@ -18,8 +18,7 @@ function Home() {
   
 
   const updateSummonerPUUID = () => {
-    console.log(summonerSearch)
-    console.log(summonerSearchUrl)
+    
     axios.get(summonerSearchUrl)
     .then(response => {
       setSummonerPUUID(response.data.puuid)
@@ -27,6 +26,8 @@ function Home() {
   }
 
   const getGames = () => {
+    console.log('hello')
+    console.log(process.env.REACT_APP_LOL_API_KEY)
     if(summonerPUUID !== "") {
       console.log(gamesUrl)
       setGames({

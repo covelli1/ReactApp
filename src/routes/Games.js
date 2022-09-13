@@ -13,25 +13,37 @@ import { data } from "browserslist";
 
 
 function Games() {
+    
     //Hook Declaration
     const [numGamesLoad, setNumGamesLoad] = useState(10);
+    let covelli = "";
     const [games, setGames] = useState({
       loading: false,
       data: null, 
       error: false
     });
 
+    const covelliURL = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/covelli?api_key=${process.env.REACT_APP_LOL_API_KEY}`
+
+      
+  
     //Create function "urlFormat"
-    const urlFormat = num => `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/9P4U9HheFG4fo4DyYcisBZxnUR1bqhNIJqE_lHunyvfidzrvKKRtewqqvWYVQFWNGJSVMuJlNOEkIA/ids?startTime=1641513600&type=ranked&start=0&count=${num}&api_key=${process.env.REACT_APP_LOL_API_KEY}`
-    const url = urlFormat(numGamesLoad);
+    
 
     //Changes the "numGamesLoad" so the page can render correct number of games
     const fetchData = () => {
+
+      axios.get(covelliURL)
+      .then(response => {
+        covelli = (response.data.puuid)
+        const urlFormat = num => `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${covelli}/ids?startTime=1641513600&type=ranked&start=0&count=${num}&api_key=${process.env.REACT_APP_LOL_API_KEY}`
+        const url = urlFormat(numGamesLoad);
+        
       setGames({
         loading:true,
         data:null,
         error:false
-      })
+      });
 
       axios.get(url)
       .then(response => {
@@ -48,9 +60,15 @@ function Games() {
           error:true
         })
       });
+      });
+
+      
   };
 
-  useEffect(() => fetchData(), []);
+  useEffect(() => {
+    
+    fetchData()
+  }, []);
 
 
     //initialize var that will hold html content to display
