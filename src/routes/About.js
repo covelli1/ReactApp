@@ -5,7 +5,7 @@ function About() {
       <div>
         <h1 className="font-bold text-4xl mb">About us</h1>
         <p>
-            This is the about page content
+            This was my very first React Project. Things may look a little funky.
         </p>
       </div>
     );
