@@ -15,11 +15,13 @@ function Both_Teams(props) {
             team1 = 
             props.teamDict[x].map((player) =>
                 {
-                    champ = player[1].championName + '.png'
+                    champ = player[1].championName.charAt(0).toUpperCase() + player[1].championName.slice(1).toLowerCase() + '.png'
+                    console.log(champ)
 
                     return (
                         <div className="" key={player[0]}>
                             <div className="flex flex-row items-center">
+                                
                                 <img src={images[champ]} className="scale-50" />
                                 {player[0]} 
                                 
@@ -38,10 +40,12 @@ function Both_Teams(props) {
             team2 = 
             props.teamDict[x].map((player) =>
                 {
-                    champ = player[1].championName + '.png'
+                    champ = player[1].championName.charAt(0).toUpperCase() + player[1].championName.slice(1).toLowerCase() + '.png'
+                    console.log(champ)
                     return (
                         <div className="" key={player[0]}>
                             <div className="flex flex-row items-center">
+                                
                                 <img src={images[champ]} className="scale-50" />
                                 {player[0]} 
                             

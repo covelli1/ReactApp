@@ -26,8 +26,7 @@ function Home() {
   }
 
   const getGames = () => {
-    console.log('hello')
-    console.log(process.env.REACT_APP_LOL_API_KEY)
+    
     if(summonerPUUID !== "") {
       console.log(gamesUrl)
       setGames({
