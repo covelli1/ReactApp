@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Header/>
         
-        <div className='p-3'>
+        <div className='p-3 '>
           <Routes>
             
             {/* MAKE SURE BOTH ROUTE TO HOME PAGE */}
